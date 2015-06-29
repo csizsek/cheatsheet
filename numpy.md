@@ -2,7 +2,7 @@
 
 ##Data Types
 Type Name | Type Code | Description
----  | ---
+---  | --- | ---
 `int8` `uint8` | `i1` `u1` | 8-bit integer
 `int16` `uint16` | `i2` `u2` | 16-bit integer
 `int32` `uint32` | `i4` `u4` | 32-bit integer
