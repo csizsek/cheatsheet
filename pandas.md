@@ -26,6 +26,7 @@ Attribute/Function | Description
 `s.index` | Index
 `s.index.name` | Index name
 `s.values` | Values as an array
+`s.drop('c')` `s.drop(['c', 'd'])` | Drop elements with the specified index(es)
 
 ###Operations
 Expression | Description
@@ -68,3 +69,52 @@ Attribute/Function | Description
 `d.columns` | List of columns
 `d.columns.name` | Name of the columns list
 `d.values` | Values as a 2D array
+`d.drop('c')` `d.drop(['c', 'd'])` | Drop elements with the specified index(es)
+`d.drop('foo', axis=1)` `s.drop(['foo', 'bar'], axis=1)` | Drop columns with the specified index(es)
+
+##Index Type
+
+###Index Types
+Type | Description
+---  | ---
+`Index` | The most general Index type
+`Int64Index` | Special Index type for integer values
+`MultiIndex` | Hierarchical Index type representing multiple levels of indices on a single axis
+`DatetimeIndex` | Nanosecond timestamp Index
+`PeriodIndex` | Special index for period (timespan) data
+
+###Creating Index Objects
+Expression | Description
+---  | ---
+`pd.Index(np.arange(10))` | An Index object
+
+###Index Attributes and Member Functions
+Attribute/Function | Description
+---  | ---
+`i.append(j)` | Concatenate with other Index
+`i.difference(j)` | Set diff of two Indices as an Index
+`i.intersection(j)` | Intersection
+`i.union(j)` | Union
+`i.isin[1, 2, 3]` | A boolean array indicating whether the Index elements are contained by the passed-in collection
+`i.delete(5)` | Remove element from the Index
+`i.drop([5, 6])` | Remove elements from the Index
+`i.insert(5, 3)` | Insert 5 at position 3
+`i.is_monotonic` | Monotonicity
+`i.is_unique` | Uniqueness
+`i.unique()` | Compute unique sequence
+
+###Reindexing Series and DataFrames
+Expression | Description
+---  | ---
+`s.reindex(['a', 'b', 'c'], fill_value=0)` | Reindex the series
+`d.reindex(['a', 'b', 'c'], method='ffill')` | Reindex the frame
+
+###Reindex Function Args
+Arg | Description
+---  | ---
+`index` | The new index sequence (can be an pd.Index type or any sequence-like structure)
+`method` | The method to populate the missing elements (can be `ffill`, `pad`, `backfill` or `bfill`)
+`fill_value` | Substitute value to use when introducing missing data
+`limit` | Maximum size gap to fill
+`level` | Match simple index on level of MultiIndex, otherwise select subset of
+`copy` | If `True` then always copy underlying data
