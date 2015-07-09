@@ -228,4 +228,35 @@ Expression | Description
 `d.fillna(method='ffill')` | Forward fill null values (i.e. copy the value just before the null into the null element)
 `d.fillna(d.mean())` | Fill in null values with the mean of the column
 
- 
+##Data Loading and Storage
+
+###Data Parsing Functions
+Function | Description
+---  | ---
+`pd.read_csv('data.txt')` | Load the file file into a Pandas DataFrame (the deafult delimiter is `,`)
+`pd.read_table('data.txt')` | Load the file file into a Pandas DataFrame (the deafult delimiter is `\t`)
+`pd.read_fwf('data.txt')` | Load the fixed width file into a Pandas DataFrame (no delimiter)
+
+###Data Parsing Function Args
+Arg | Description
+---  | ---
+`path` | File path or URL
+`sep` `delimiter` | Character sequence or regex as a delimiter between fields
+`header` | Row number to use as a header (the default is 0). Should be `None` if there is no header
+`index_col` | Column numbers or names to use as a row index
+`names` | A list of column names for result (combine with `header=None`)
+`skiprows` | Number of rows at the beginning of the file to ignore (or a list of row numbers indexed from 0)
+`na_values` | Sequence of values to be replaced with `NaN`
+`comment` | Character or char sequence to split off comments from the end of lines
+`parse_dates` | Attempt to parse data to Datetime
+`converters` | A dict containing the the column names to converter functions
+`date_parser` | The function to use for parsing dates
+`nrows` | Number of rows to read
+`iterator` | Return a `TextParser` object
+`chunksize` | The size of file chunks (for iteration)
+`skip_footer` | Number of lines to ignore at the end of file
+`verbose` | Print parser output info
+`encoding` | Text encoding for unicode
+`squeeze` | Return a Series for a data file with 1 column
+`thousands` | Thousand separator
+
