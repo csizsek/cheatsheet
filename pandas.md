@@ -230,14 +230,14 @@ Expression | Description
 
 ##Data Loading and Storage
 
-###Data Parsing Functions
+###Text Reading Functions
 Function | Description
 ---  | ---
 `pd.read_csv('data.txt')` | Load the file file into a Pandas DataFrame (the deafult delimiter is `,`)
 `pd.read_table('data.txt')` | Load the file file into a Pandas DataFrame (the deafult delimiter is `\t`)
 `pd.read_fwf('data.txt')` | Load the fixed width file into a Pandas DataFrame (no delimiter)
 
-###Data Parsing Function Args
+###Text Reading Function Args
 Arg | Description
 ---  | ---
 `path` | File path or URL
@@ -260,3 +260,43 @@ Arg | Description
 `squeeze` | Return a Series for a data file with 1 column
 `thousands` | Thousand separator
 
+###Text Writing Functions
+Function | Description
+---  | ---
+`d.to_csv('data.txt')` | Write data to a CSV file
+
+###Text Writing Function Args
+Arg | Description
+---  | ---
+`path_or_buf` | File path
+`sep` | Character sequence or regex as a delimiter between fields (the default is `,`)
+`na_rep` | The representation of empty values (the default is an empty string)
+`float_format` | Format string for floats
+`columns` | Columns to write
+`header` | Write column names (the default is True)
+`index` | Write row names (the default is True)
+`index_label` | Column names for index column (the default is `None`)
+`mode` | Python file mode (the default is `w`)
+`encoding` | String encoding (for Python 2 the default is `ascii`)
+`line_terminator` | Newline char (the default is `\n`)
+`quoting` | Optional constant from csv module (the default is `csv.QUOTE_MINIMAL`)
+`quotechar` |  Character used to quote fields (the default is `"`)
+`doublequote` | Control quoting of quotechar inside a field (the default is True)
+`escapechar` | Character used to escape sep and quotechar when appropriate (the default is `None`)
+`chunksize` | Rows to write at a time
+`date_format` | Format string for datetime objects (the default is `None`)
+`decimal` | Character recognized as decimal separator (the default is `.`)
+
+###JSON Data I/O
+Function | Description
+---  | ---
+`json.dumps(d)` | Dump d as JSON (standard json module)
+`d = json.loads(s)` | Load d form a string (standard json module)
+`d.to_json('data.json')` | Write data frame to a JSON file
+`d = pd.read_json('data.json')` | Read data frame from a JSON file
+
+###Binary Data I/O
+Function | Description
+---  | ---
+`d.to_pickle('d_pickle')` | Write data frame to a binary file
+`d = pd.read_pickle('d_pickle')` | Read data frame from a binary file
