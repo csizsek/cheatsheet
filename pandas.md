@@ -300,3 +300,131 @@ Function | Description
 ---  | ---
 `d.to_pickle('d_pickle')` | Write data frame to a binary file
 `d = pd.read_pickle('d_pickle')` | Read data frame from a binary file
+
+##Combining and Merging Data Sets
+
+###Database-style Data Frame Merge
+Expression | Description
+---  | ---
+`pd.merge(d, e, on='key')` | Merge the two data frames on `key` as if they were two relational database tables
+
+###Merge Args
+Arg | Description
+---  | ---
+`key` | What (common) column to use when merging
+`left` | Data frame to be used as the left frame
+`right` | Data frame to be used as the right frame
+`how` | What kind of merge (join) to use (the default is `inner`, other choices are `left`, `right` and `outer`)
+`on` | A list of column names to merge on (each of them must be found in both frames)
+`left_on` | Columns in the left frame to merge on
+`right_on` | Columns in the right frame to merge on
+`left_index` | User the row index in the left frame to merge
+`right_index` | User the row index in the right frame to merge
+`sort` | Sort merged data lexicographically by merge keys (the default is True)
+`suffixes` | Tuple of string values to append to column names in case of overlap
+`copy` | Copy data to the resulting data structure (the default is True)
+
+###Concatenating Along an Axis
+Expression | Description
+---  | ---
+`pd.concat([d, e], axis=1)` | Concatenate the two data frames along the 1st axis
+
+###Concat Args
+Arg | Description
+---  | ---
+`objs` | A list or a dict of pandas objects to concatenate
+`axis` | Axis to concatenate along (the default is 0)
+`join` | What to do with axis indices (`inner` means intersection, `outer` means union, the default is `outer`)
+`join_axes` | Specific indexes to use for the other `n-1` axes instead of performing intersection/union
+`keys` | Values to associate with objects being concatenated
+`levels` | Indexes to use as hierarchical index level or levels if keys are passed
+`names` | Names for the created hierarchical levels
+`verify_integrity` | Check new axis in concatenated object and raise an exception if there is a duplicate
+`ignore_index` | Do not preserve indexes along concatenated axis
+
+###Combining Data with Overlap
+Expression | Description
+---  | ---
+`d.combine_first(e)` | Fill in `NaN` values in `d` from `e` (the two frames have to share the same shape)
+
+##Reshaping and Pivoting
+
+###Reshaping with Hierarchical Indexing
+Expression | Description
+---  | ---
+`d.stack()` | Pivots the columns into the rows with hierarchical index producing a series
+`d.unstack()` | For a hierarchically indexed series rearranges it back to a data frame with columns (by default the innermost level is unstacked)
+`d.unstack(0)` | For a hierarchically indexed series rearranges it back to a data frame with columns by unstacking the specified level
+
+###Pivoting "long" to "wide" Format
+Expression | Description
+---  | ---
+`d.pivot('foo', 'bar')` | Pivots the table with `foo` as the row index and `bar` as the column index (this is equivalent with creating a hierarchical index and setting it with `set_index` and reshaping with `unstack`)
+
+##Data Transformation
+
+###Managing Duplicates
+Expression | Description
+---  | ---
+`d.duplicated()` | Returns a boolean series which tells for each row whether it is a dubplicate in the table
+`d.drop_duplicates()` |  Drops duplicate rows keeping the first one from each group
+`d.drop_duplicates(['k1'], take_last=True)` | Drops duplicate rows based on the specified list of columns keeping the last one from each group
+
+###Transforming Data Using Function or Mapping
+Expression | Description
+---  | ---
+`d['bar'] = d['foo'].map(f)` | Assign to the column `bar` of the data frame the series that is a result of applying the function `f` to the column `foo`
+ `d['bar'] = d['foo'].map(s)` | Assign to the column `bar` of the data frame the series that is a result of applying the dict `s` as a mapping function to the column `foo`
+`d['bar'] = d['foo'].map(lambda x: x.lower())` | Assign to the column `bar` of the data frame the series that is a result of applying the lambda function to the column `foo`
+
+###Replacing Values
+Expression | Description
+---  | ---
+`s.replace(100, 0)` | Replace `100` with `0` in the series
+`s.replace([100, 200], 0)` | Replace `100` and `200` with `0` in the series
+`s.replace([100, 200], [0, 5])` | Replace `100` with 0 and `200` with `5` in the series
+`s.replace({'foo': 0, 'bar': 1})` | Replace items based on the specified mapping
+
+###Discretization and Binning
+Expression | Description
+---  | ---
+`cats = pd.cut(s, bins)` | Return categories defined in `bins` and assign each element in `s` into these categories
+`cats.codes` | The assigned categories for each element
+`cats.categories` | The bin categories
+`cats = pd.cut(s, 3, precision=2)` | Assign the elements in `s` into 3 equal size groups with the precision of 2
+`pd.qcut(s, 4)` | The quartiles of s as categories
+`pd.qcut(s, [0, 0.1, 0.5, 0.9, 1])` | The user-defined quantiles of s as categories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
