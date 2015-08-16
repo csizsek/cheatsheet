@@ -395,18 +395,32 @@ Expression | Description
 `pd.qcut(s, 4)` | The quartiles of s as categories
 `pd.qcut(s, [0, 0.1, 0.5, 0.9, 1])` | The user-defined quantiles of s as categories
 
+###Permutation and Random Sampling
+Expression | Description
+---  | ---
+`d.take(np.random.permutation(len(d)))` | Random permutation of `d`'s rows
+`d.take(np.random.permutation(len(d))[:5])` | Random sample of `d`'s rows without replacement
+`d.take(np.random.randint(0, len(d), size=5))` | Random sample of `d`'s rows with replacement
 
+###Computing Indicator and Dummy Variables
+Expression | Description
+---  | ---
+`d[['data']].join(pd.get_dummies(d['key'], prefix='key'))` | Get indicator variables for each possible value of the `key` column and join it to the data frame with the name prefix `key_*`
+`pd.get_dummies(pd.cut(values, bins))` | Assign values in `values` into bins in `bins` and introduce indicator variables for bin memberships
 
-
-
-
-
-
-
-
-
-
-
+###String Object Methods
+Method | Description
+---  | ---
+`s.count('foo')` | Number of non-overlapping substring occurrences
+`s.startswith(t)` `s.endswith(t)` | Return `True` if `s` starts/end with `t`
+`s.join(a)` | Using `s` as a delimiter concatenate `a`'s elements
+`s.index(t)` | Return the index of `t`'s first occurrence in `s` (raises `ValueError` if not found)
+`s.find(t)` `s.rfind(t)` | Return the index of `t`'s first/last occurrence in `s` (returns `-1` if not found)
+`s.replace(t, u)` | Replace all occurrences of `t` in `s` with `u`
+`s.strip()` `s.rstrip()` `s.lstrip()` | Trim whitespace characters
+`s.split(t)` | Split `s` at every occurrence of `t`
+`s.lower()` `s.upper()` | Lowercase/uppercase `s`
+`s.rjust(10, c)` `s.rjust(10, c)` | Right/left justify `s` within the given width using `c` as the paddign character
 
 
 
