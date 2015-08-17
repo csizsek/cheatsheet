@@ -422,6 +422,25 @@ Method | Description
 `s.lower()` `s.upper()` | Lowercase/uppercase `s`
 `s.rjust(10, c)` `s.rjust(10, c)` | Right/left justify `s` within the given width using `c` as the paddign character
 
+###Regex Methods
+Method | Description
+---  | ---
+`p = re.compile('\s+')` | Compile a regex and store it for later use
+`p.findall(s)` `re.findall(p, s)` `r.finditer(s)` `re.finditer(p, s)`| Find all non-overlapping occurrences of the pattern `p` in the string `s`
+`p.match(s)` | Match the pattern `p` to the beginning of `s` and optionally segment pattern components into groups
+`p.search(s)` | Search for an occurrence of the pattern `p` in the string `s` and return a match object or `None` if not found
+`p.split(s)` | Split the string `s` at each non-overlapping occurrence of the pattern `p`
+`re.sub(p, s, t)` `p.sub(s, t)` | Replace all occurrences of the pattern `p` with the string `t` in the string `s`
+`re.subn(p, s, t, n)` `p.subn(s, t, n)` | Replace the first `n` occurrences of the pattern `p` with the string `t` in the string `s`
+
+###Vectorized String Methods
+Method | Description
+---  | ---
+`cat` | Concat strings element-wise with an optional delimiter
+`contains` | Return a boolean array if each string contains pattern
+`count` | Count the occurrences of pattern
+`startswith` `endswith` | Equivalent to the similarly named string methods
+`findall` | 
 
 
 
