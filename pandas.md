@@ -408,6 +408,8 @@ Expression | Description
 `d[['data']].join(pd.get_dummies(d['key'], prefix='key'))` | Get indicator variables for each possible value of the `key` column and join it to the data frame with the name prefix `key_*`
 `pd.get_dummies(pd.cut(values, bins))` | Assign values in `values` into bins in `bins` and introduce indicator variables for bin memberships
 
+##String Manipulation
+
 ###String Object Methods
 Method | Description
 ---  | ---
@@ -433,15 +435,24 @@ Method | Description
 `re.sub(p, s, t)` `p.sub(s, t)` | Replace all occurrences of the pattern `p` with the string `t` in the string `s`
 `re.subn(p, s, t, n)` `p.subn(s, t, n)` | Replace the first `n` occurrences of the pattern `p` with the string `t` in the string `s`
 
-###Vectorized String Methods
+###Vectorized String Functions
 Method | Description
 ---  | ---
-`cat` | Concat strings element-wise with an optional delimiter
-`contains` | Return a boolean array if each string contains pattern
-`count` | Count the occurrences of pattern
-`startswith` `endswith` | Equivalent to the similarly named string methods
-`findall` | 
-
+`s.str.cat(t)` | Concat strings in the series `s` and series `t` element-wise with an optional delimiter
+`s.str.contains(str)` | Return a boolean series if each string in the series `s` contains the string `str`
+`s.count(str)` | Count the occurrences of `str` for each string in the series `s`
+`s.str.startswith(str)` `s.str.endswith(str)` | Return a boolean series if each string in the series `s` starts/ends with `str`
+`s.str.findall(str)` | Finds all occurrences of `str` in each element of the series `s`
+`s.str.get(5)` | Index into each string in the series `s` and return a series with the resulting characters
+`s.str.join(c)` | Join each element in the series `s` using the character `c`
+`s.str.len()` | Return a series with the lenghts of each element in the series `s`
+`s.str.lower()` `s.str.upper()` | Lower/upper case each string in `s`
+`s.str.match(p)` | Match each string in `s` against the pattern `p` and return the list of matches
+`s.str.pad(30)` | Add whitespaces to the string ins `s`
+`s.str.repeat(3)` | Duplicate string values
+`s.str.replace(t, u)` | Replace the occurrences of `t` to `u` in each element of `s`
+`s.str.split(str)` | Split each element of `s` by `str`
+`s.str.strip()` `s.str.rstrip()` `s.str.lstrip()` | Remove whitespaces from each element of `s`
 
 
 
