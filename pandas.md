@@ -453,22 +453,3 @@ Method | Description
 `s.str.replace(t, u)` | Replace the occurrences of `t` to `u` in each element of `s`
 `s.str.split(str)` | Split each element of `s` by `str`
 `s.str.strip()` `s.str.rstrip()` `s.str.lstrip()` | Remove whitespaces from each element of `s`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
