@@ -453,3 +453,13 @@ Method | Description
 `s.str.replace(t, u)` | Replace the occurrences of `t` to `u` in each element of `s`
 `s.str.split(str)` | Split each element of `s` by `str`
 `s.str.strip()` `s.str.rstrip()` `s.str.lstrip()` | Remove whitespaces from each element of `s`
+
+##Plotting
+
+###Plotting Pandas Objects
+Expression | Description
+---  | ---
+`s.plot()` `d.plot()` | Plot a series or a data frame
+`d.plot(kind='bar')` | Bar plot
+`d.plot(logy=True)` | Logarithmic Y scale
+Most PyPlot stuff | The same
