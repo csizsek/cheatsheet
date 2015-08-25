@@ -483,11 +483,21 @@ Expression | Description
 ###Data Aggregation
 Expression | Description
 ---  | ---
-`a` | a
+`d.groupby('foo')[['bar']].mean()` `d.groupby('foo')[['bar']].agg('mean')` | The mean for column `bar` grouped by the distinct values of the column `foo`
+`d.groupby('foo').quantile(0.8)` | The 80th percentile for each column grouped by the distinct values of the column `foo`
+`d.groupby('foo').agg(f)` | Aggregate each column of `d` with the custom aggregation function `f` grouped by column `foo` (`f` takes an array and returns a value)
+`d.groupby('foo')[['bar']].agg(['min', 'mean', 'max'])` | Some descriptive statistics for column `bar` grouped by `foo`
+`d.groupby('foo')['bar'].agg([('SUM', 'sum')])` | Set a custom name for the aggregated column
 
-
-
-
-
-
-
+###Aggregation Functions
+Function | Description
+---  | ---
+`count` | Count non-NA values
+`sum` | Sum of non-NA values
+`mean` | Mean of non-NA values
+`median` | Arithmetic median of non-NA values
+`std` | Unbiased (n-1 denominator) standard deviation
+`var` | Variance
+`max` `min` | Max/min of non-NA values
+`prod` | Product of non-NA values
+`first` `last` | First/last non-NA values
