@@ -463,3 +463,31 @@ Expression | Description
 `d.plot(kind='bar')` | Bar plot
 `d.plot(logy=True)` | Logarithmic Y scale
 Most PyPlot stuff | The same
+
+##Data Aggregation and Grouping
+
+###Group By
+Expression | Description
+---  | ---
+`d.groupby(['foo'])` | Group `d` by the distinct values of the column `foo`
+`d.groupby(['foo', 'bar'])` | Group `d` by the distinct pairs of the columns `foo` and `bar`
+`d['bar'].groupby(['foo'])` | Group column `bar` by the distinct values of the column `foo`
+`d['bar'].groupby(['foo']).mean()` | Get the mean of column `bar` by the distinct values of the column `foo`
+`d.groupby(d.dtypes, axis=1)` | Group the columns of `d` by the data type
+`dict(list(d.groupby(['foo'])))` | Get a dict of key-value pairs where the key is the distinct values of the column `foo` and the value is the grouped data
+`d.groupby('foo')[['bar']].mean()` | Compute the means of `bar` grouped by values of `foo`
+`d.groupby(mapping, axis=1).sum()` | Group the columns of `d` by `mapping` and compute the sum of all column groups for each row
+`d.groupby(lambda x: ord(x) % 2 == 0, axis=1).sum()` | Group the columns of `d` by an anonymous mapping function and compute the sum of all column groups for each row
+`d.groupby(level='foo', axis=1).count()` | Group by the distinct values of a level of a hierarchical index
+
+###Data Aggregation
+Expression | Description
+---  | ---
+`a` | a
+
+
+
+
+
+
+
