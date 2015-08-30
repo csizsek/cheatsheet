@@ -17,7 +17,7 @@ Expression | Description
 ---  | ---
 `s['a']` | An element of a series with the specified index
 `s[['a', 'b']]` | A sub-series with the specified indices
-`s['a':'c']` | Slicing by indices (opposed to normal Python slicing, the endpoint is inclusive as well)
+`s['a':'c']` | Slicing by indices (opposed to normal Python slicing, the endpoint is inclusive)
 `s[s < 3]` | Filter by the specified criteria
 
 ###Series Attributes and Member Functions
@@ -50,7 +50,7 @@ Expression | Description
 `s.order()` | Sort by elements
 `s.rank()` | Return a series with the same index as `s` but instead of the original elements of the series it contains the rank of each element if the series would be sorted (in case of ties it assigns the mean rank of the tied group)
 `s.rank(method='first')` | Assigns the rank of the first element to each element in the group in case of a tie (available tie resolution methods are `min`, `max`, `mean` and `first`)
-`s.rank(ascending=Falese)` | Sorts in descending order
+`s.rank(ascending=False)` | Sorts in descending order
 ##DataFrame
 
 ###Creating DataFrame Objects
