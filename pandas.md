@@ -76,6 +76,7 @@ Expression | Description
 `d.icol(2)` | The elements of the third column as a Series with the original row index preserved
 `d.irow(2)` | The elements of the third row as a Series with the column names as indices
 `d.xs('c')` | The elements of the row `c` as a Series with the column names as indices
+`d.loc[d.bar == 2, 'foo']` | Returns a subset of the column `foo` that can be used to assign a new value to 
 
 ###DataFrame Attributes and Member Functions
 Attribute/Function | Description
