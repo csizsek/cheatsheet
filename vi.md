@@ -82,3 +82,24 @@
 | ic,noic | ignore case on, off |
 | nu, nonu | line numbers on, off |
 | sm,nosm | show matches on, off |
+
+## Visual Mode
+| Command | Effect |
+| --- | --- |
+| v | visual mode |
+| V | visual mode (linewise) |
+| ^v | visual mode (block) |
+
+## Other Commands
+
+Block Comment (Block Insert)
+ * `^v` enter block visual mode
+ * select first column of lines to comment
+ * `I` enter insert mode
+ * enter comment characters
+ * `ESC` exit visual mode and insert text to all lines
+
+Block Uncomment (Block Delete)
+* `^v` enter block visual mode
+* select characters to delete
+* `d` delete characters
