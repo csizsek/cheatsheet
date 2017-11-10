@@ -12,7 +12,7 @@
 | --- | --- |
 | w,W,b,B | forward, backward by word |
 | },{ | beginning of next, previous paragraph |
-| 0,$ | beginning, end of current line |
+| ^,$ | beginning, end of current line |
 | ENTER | first non-blank character of next line |
 | H,M,L | top, middle, last line of screen |
 | CTRL-F CTRL-B | scroll forward, backward one screen |
