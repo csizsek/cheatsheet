@@ -70,7 +70,7 @@
 | \ | the following character is meant to be literal |
 | [...] | any one of the enclosed characters (...) |
 | \\(...\\) | saves pattern ... to the hold buffer |
-| \n | the contents of the nth hold buffer (when replacing) |
+| \*n* | the contents of the *n*th hold buffer (when replacing) |
 | & | the contents of the whole matched pattern (when replacing) |
 | \u,\l | change the next character to uppercase, lowercase (when replacing) |
 | \U,\L | change the following text to uppercase, lowercase (when replacing) |
