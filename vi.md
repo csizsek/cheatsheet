@@ -20,7 +20,7 @@
 | CTRL-E CTRL-Y | scroll forward, backward one line |
 | z . | reposition line to middle of screen |
 | CTRL-G | display current line |
-| *n* ENTER | move to line *n* |
+| *n*G | move to line *n* |
 | G | move to last line |
 | /,?*pattern* | search forward, backward for *pattern* |
 | n,N | repeat search in same, opposite direction |
